@@ -16,6 +16,11 @@ gem 'jbuilder', '~> 2.7'
 # Use Active Model has_secure_password
 gem 'bcrypt'
 gem "jwt", "~> 2.2"
+gem 'activeadmin'
+gem 'inherited_resources', github: 'activeadmin/inherited_resources'
+gem 'devise'
+gem 'hirb'
+gem 'sassc-rails'
 
 gem "active_model_serializers", "~> 0.10.10"
 

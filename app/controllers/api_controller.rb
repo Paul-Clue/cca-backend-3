@@ -1,7 +1,5 @@
-# class ApplicationController < ActionController::API
-class ApplicationController < ActionController::Base
-  before_action :authorized
-  protect_from_forgery with: :null_session
+class ApiController < ActionController::API
+  skip_before_action :authorized, :raise => false
 
   def jwt_key
     Rails.application.credentials.jwt_key
