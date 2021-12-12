@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :milestones
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   # resources :posts
@@ -8,12 +9,28 @@ Rails.application.routes.draw do
     namespace :v1 do
       resources :posts
       # resources :users
+      #USERS ROUTES
       post '/login', to: 'auth#create'
       post '/sign_up', to: 'users#create'
+      post 'user/:id', to: 'users#update'
+
+      delete 'deleteuser/:id', to: 'users#destroy'
+
       get '/current_user', to: 'auth#show'
       get '/users', to: 'users#index'
       get '/user/:id', to: 'users#profile'
-      post 'user/:id', to: 'users#update'
+
+      #POST ROUTES
+      post 'post/:id', to: 'posts#update'
+      post 'post', to: 'posts#create'
+
+      delete 'deletepost/:id', to: 'posts#destroy'
+
+      get '/posts', to: 'posts#index'
+      get '/post/:user_id', to: 'posts#current_user_posts'
+      # get '/user/:id', to: 'users#profile'
+     
+      
     end
   end
 end

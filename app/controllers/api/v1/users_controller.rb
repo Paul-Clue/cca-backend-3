@@ -21,18 +21,6 @@ class Api::V1::UsersController < ApiController
 
   def update
     @us = User.all
-    # @us.each do |v|
-    #   render json: params[:id].
-    #   break
-    # end
-
-
-    # @us.each do |v|
-    #   if v.id == params[:id].to_i
-    #     render json: @us
-    #   end
-    # end
-
 
     @us.each do |v|
       if v.id == params[:id].to_i
@@ -54,12 +42,23 @@ class Api::V1::UsersController < ApiController
     end
   end
 
+  def destroy
+    @use = User.all
+    @use.each do |v|
+      if v.id == params[:id].to_i
+        v.destroy
+        head :no_content
+      end
+    end
+  end
+
   private
 
   def user_params
     # params.require(:user).permit(:username, :password, :email)
     # params.require.permit(:username, :password, :email)
-    params.permit(:username, :password, :email, :img, :user_type, :phone_number, :address, :release_date, :manager, :employment_date, :employment_type, :employed, :work_hours, :residence)
+    # params.permit(:username, :password, :email, :img, :user_type, :phone_number, :address, :release_date, :manager, :employment_date, :employment_type, :employed, :work_hours, :residence)
+    params.require(:user).permit(:username, :password, :email, :img, :user_type, :phone_number, :address, :release_date, :manager, :employment_date, :employment_type, :employed, :work_hours, :residence)
   end
 
   def set_user
