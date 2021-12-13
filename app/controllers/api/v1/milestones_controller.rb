@@ -8,7 +8,8 @@ class Api::V1::MilestonesController < ApiController
   end
 
   def current_user_milestones
-    @current_users_milestones = Milestone.select("title, instructions").where(user_id: current_user.id)
+    # @current_users_milestones = Milestone.select("title, instructions").where(user_id: current_user.id)
+    @current_users_milestones = Milestone.select("title, instructions").where(user_id: current_user.id).or(Milestone.select("title, instructions").where(user_id: "*"))
     render json: @current_users_milestones.to_json
     # render json: current_user.to_json
   end
