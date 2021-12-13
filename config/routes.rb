@@ -9,7 +9,7 @@ Rails.application.routes.draw do
     namespace :v1 do
       resources :posts
       # resources :users
-      #USERS ROUTES
+      #----------USERS ROUTES----------
       post '/login', to: 'auth#create'
       post '/sign_up', to: 'users#create'
       post 'user/:id', to: 'users#update'
@@ -20,7 +20,9 @@ Rails.application.routes.draw do
       get '/users', to: 'users#index'
       get '/user/:id', to: 'users#profile'
 
-      #POST ROUTES
+
+
+      #----------POST ROUTES----------
       post 'post/:id', to: 'posts#update'
       post 'post', to: 'posts#create'
 
@@ -29,8 +31,18 @@ Rails.application.routes.draw do
       get '/posts', to: 'posts#index'
       get '/post/:user_id', to: 'posts#current_user_posts'
       # get '/user/:id', to: 'users#profile'
-     
-      
+
+
+
+      #----------MILESTONE ROUTES----------
+      post 'milestone/:id', to: 'milestones#update'
+      post 'milestone', to: 'milestones#create'
+
+      delete 'deletemilestone/:id', to: 'milestones#destroy'
+
+      get '/milestones', to: 'milestones#index'
+      get '/milestone/:user_id', to: 'milestones#current_user_milestones'
+
     end
   end
 end

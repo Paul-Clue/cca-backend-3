@@ -1,7 +1,7 @@
 # class Api::V1:PostsController < ApplicationController
 class Api::V1::PostsController < ApiController
   # skip_before_action :authorized, :raise => false
-  before_action :authorized
+  # before_action :authorized
 
   def index
     @posts = Post.select("id, user_id, content, title").all
@@ -38,7 +38,7 @@ class Api::V1::PostsController < ApiController
         # render json: { user: @user, jwt: @token }
         render json: {post: @post}
     else
-      render json: { error: 'failed to create user' }, status: :not_acceptable
+      render json: { error: 'failed to create post' }, status: :not_acceptable
     end
   end
 

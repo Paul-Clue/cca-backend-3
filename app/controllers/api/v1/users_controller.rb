@@ -1,7 +1,7 @@
 # class Api::V1::UsersController < ApplicationController
 class Api::V1::UsersController < ApiController
   # skip_before_action :authorized, only: [:create]
-  skip_before_action :authorized, :raise => false
+  # skip_before_action :authorized, :raise => false
 
   def index
     @users = User.select("id, username, email, phone_number, user_type").all

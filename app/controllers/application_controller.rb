@@ -1,6 +1,7 @@
 # class ApplicationController < ActionController::API
 class ApplicationController < ActionController::Base
-  before_action :authorized
+  # before_action :authorized
+  skip_before_action :authorized, :raise => false
   protect_from_forgery with: :null_session
 
   def jwt_key
@@ -34,7 +35,7 @@ class ApplicationController < ActionController::Base
   def current_user
       @user ||= User.find_by(id: user_id)
   end
-  
+
   def logged_in?
       !!current_user
   end
