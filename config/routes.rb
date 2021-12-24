@@ -16,6 +16,10 @@ Rails.application.routes.draw do
 
       delete 'deleteuser/:id', to: 'users#destroy'
 
+      get 'stattotaltime', to: 'users#total_time_until_employ'
+      get 'statalluserslocations', to: 'users#user_locations'
+      get 'statallusersemployment', to: 'users#all_user_employment_status'
+
       get '/current_user', to: 'auth#show'
       get '/users', to: 'users#index'
       get '/user/:id', to: 'users#profile'

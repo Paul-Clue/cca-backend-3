@@ -5,6 +5,9 @@ class Api::V1::MilestonesController < ApiController
   def index
     @miles = Milestone.select("id, user_id, completed, title, instructions").all
     render json: @miles.to_json
+
+    # @sum = Milestone.add
+    # render json: @sum.to_json
   end
 
   def current_user_milestones
@@ -63,8 +66,6 @@ class Api::V1::MilestonesController < ApiController
       end
     end
   end
-
-  private
 
   def mile_params
     # params.require(:user).permit(:username, :password, :email)

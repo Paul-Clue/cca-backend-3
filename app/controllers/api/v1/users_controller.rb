@@ -4,7 +4,8 @@ class Api::V1::UsersController < ApiController
   # skip_before_action :authorized, :raise => false
 
   def index
-    @users = User.select("id, username, email, phone_number, user_type").all
+    # @users = User.select("id, username, email, phone_number, user_type, release_date, employment_date, residence").all
+    @users = User.all
     render json: @users.to_json
   end
 
@@ -50,6 +51,27 @@ class Api::V1::UsersController < ApiController
         head :no_content
       end
     end
+  end
+
+  def total_time_until_employ
+    @date = User.total_employ_time
+    # @date.each do |d|
+    #   @temp = d.release_date
+    #   @temp2 = d.employment_date
+    #   @temp3 = (@temp2 - @temp).to_i
+
+    # end
+    render json: @date
+  end
+
+  def user_locations
+    all = User.users_by_location
+    render json: all
+  end
+
+  def all_user_employment_status
+    all = User.users_empoyment_status
+    render json: all
   end
 
   private
