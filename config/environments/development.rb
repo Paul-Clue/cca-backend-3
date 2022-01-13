@@ -8,7 +8,7 @@ Rails.application.configure do
   # since you don't have to restart the web server when you make code changes.
   config.cache_classes = false
 
-  config.hosts << "21cf-72-252-198-169.ngrok.io"
+  config.hosts << "08f0-72-252-198-169.ngrok.io"
 
   # Do not eager load code on boot.
   config.eager_load = false
@@ -37,6 +37,20 @@ Rails.application.configure do
 
   config.action_mailer.perform_caching = false
 
+  config.action_mailer.delivery_method = :smtp
+host = 'localhost' #replace with your own url
+config.action_mailer.default_url_options = { host: host, port: '3001' }
+
+# SMTP settings for gmail
+config.action_mailer.smtp_settings = {
+  :address              => "smtp.gmail.com",
+  :port                 => 587,
+  :user_name            => 'paulclue20@gmail.com',
+  :password             => 'zgyagqsnnsniiigh',
+  :authentication       => "plain",
+  :enable_starttls_auto => true
+}
+
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
 
@@ -51,7 +65,7 @@ Rails.application.configure do
 
   # Highlight code that triggered database queries in logs.
   config.active_record.verbose_query_logs = true
-
+  
 
   # Raises error for missing translations.
   # config.i18n.raise_on_missing_translations = true

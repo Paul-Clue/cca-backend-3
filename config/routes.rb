@@ -13,9 +13,13 @@ Rails.application.routes.draw do
       post '/login', to: 'auth#create'
       post '/sign_up', to: 'users#create'
       post 'user/:id', to: 'users#update'
+      post 'email_code', to: 'users#code_verify'
+      post 'passchangecode', to: 'users#update_password'
+      post 'passchangeverify', to: 'users#code_verify_password'
 
       delete 'deleteuser/:id', to: 'users#destroy'
 
+      get '/email_check', to: 'users#send_mail'
       get 'stattotaltime', to: 'users#total_time_until_employ'
       get 'statalluserslocations', to: 'users#user_locations'
       get 'statallusersemployment', to: 'users#all_user_employment_status'
