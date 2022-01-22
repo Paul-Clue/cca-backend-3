@@ -169,7 +169,7 @@ end
     # params.require(:user).permit(:username, :password, :email)
     # params.require.permit(:username, :password, :email)
     # params.permit(:username, :password, :email, :img, :user_type, :phone_number, :address, :release_date, :manager, :employment_date, :employment_type, :employed, :work_hours, :residence)
-    params.require(:user).permit(:email_code, :username, :password, :email, :img, :user_type, :phone_number, :address, :release_date, :manager, :employment_date, :employment_type, :employed, :work_hours, :residence)
+    params.require(:user).permit({avatars: []}, :email_code, :username, :password, :email, :img, :user_type, :phone_number, :address, :release_date, :manager, :employment_date, :employment_type, :employed, :work_hours, :residence)
   end
 
   def set_user

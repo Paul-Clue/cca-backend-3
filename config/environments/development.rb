@@ -45,8 +45,10 @@ config.action_mailer.default_url_options = { host: host, port: '3001' }
 config.action_mailer.smtp_settings = {
   :address              => "smtp.gmail.com",
   :port                 => 587,
-  :user_name            => 'paulclue20@gmail.com',
-  :password             => 'zgyagqsnnsniiigh',
+  # :user_name            => 'paulclue20@gmail.com',
+  :user_name            => ENV["GMAIL_USERNAME"],
+  # :password             => 'zgyagqsnnsniiigh',
+  :password             => ENV["GMAIL_PASSWORD"],
   :authentication       => "plain",
   :enable_starttls_auto => true
 }

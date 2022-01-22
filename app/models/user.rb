@@ -2,6 +2,8 @@ class User < ApplicationRecord
   has_many :posts
   has_secure_password
 
+  mount_uploaders :avatars, AvatarUploader
+
   def self.user_sum
     @all_users = User.count
     return @all_users
