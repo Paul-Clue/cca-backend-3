@@ -12,17 +12,17 @@ Rails.application.routes.draw do
       #----------USERS ROUTES----------
       post '/login', to: 'auth#create'
       post '/sign_up', to: 'users#create'
-      post 'user/:id', to: 'users#update'
-      post 'email_code', to: 'users#code_verify'
-      post 'passchangecode', to: 'users#update_password'
-      post 'passchangeverify', to: 'users#code_verify_password'
+      post '/user/:id', to: 'users#update'
+      post '/email_code', to: 'users#code_verify'
+      post '/passchangecode', to: 'users#update_password'
+      post '/passchangeverify', to: 'users#code_verify_password'
 
-      delete 'deleteuser/:id', to: 'users#destroy'
+      delete '/deleteuser/:id', to: 'users#destroy'
 
       get '/email_check', to: 'users#send_mail'
-      get 'stattotaltime', to: 'users#total_time_until_employ'
-      get 'statalluserslocations', to: 'users#user_locations'
-      get 'statallusersemployment', to: 'users#all_user_employment_status'
+      get '/stattotaltime', to: 'users#total_time_until_employ'
+      get '/statalluserslocations', to: 'users#user_locations'
+      get '/statallusersemployment', to: 'users#all_user_employment_status'
 
       get '/current_user', to: 'auth#show'
       get '/users', to: 'users#index'
@@ -31,10 +31,10 @@ Rails.application.routes.draw do
 
 
       #----------POST ROUTES----------
-      post 'post/:id', to: 'posts#update'
-      post 'post', to: 'posts#create'
+      post '/post/:id', to: 'posts#update'
+      post '/post', to: 'posts#create'
 
-      delete 'deletepost/:id', to: 'posts#destroy'
+      delete '/deletepost/:id', to: 'posts#destroy'
 
       get '/posts', to: 'posts#index'
       get '/post/:user_id', to: 'posts#current_user_posts'
@@ -43,10 +43,10 @@ Rails.application.routes.draw do
 
 
       #----------MILESTONE ROUTES----------
-      post 'milestone/:id', to: 'milestones#update'
-      post 'milestone', to: 'milestones#create'
+      post '/milestone/:id', to: 'milestones#update'
+      post '/milestone', to: 'milestones#create'
 
-      delete 'deletemilestone/:id', to: 'milestones#destroy'
+      delete '/deletemilestone/:id', to: 'milestones#destroy'
 
       get '/milestones', to: 'milestones#index'
       get '/milestone/:user_id', to: 'milestones#current_user_milestones'
