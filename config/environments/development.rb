@@ -8,7 +8,8 @@ Rails.application.configure do
   # since you don't have to restart the web server when you make code changes.
   config.cache_classes = false
 
-  config.hosts << "0a34-64-64-117-139.ngrok.io"
+  # config.hosts << "0a34-64-64-117-139.ngrok.io"
+  config.hosts << "ccafrontend.herokuapp.com"
 
   # Do not eager load code on boot.
   config.eager_load = false
@@ -45,9 +46,7 @@ config.action_mailer.default_url_options = { host: host, port: '3001' }
 config.action_mailer.smtp_settings = {
   :address              => "smtp.gmail.com",
   :port                 => 587,
-  # :user_name            => 'paulclue20@gmail.com',
   :user_name            => ENV["GMAIL_USERNAME"],
-  # :password             => 'zgyagqsnnsniiigh',
   :password             => ENV["GMAIL_PASSWORD"],
   :authentication       => "plain",
   :enable_starttls_auto => true
