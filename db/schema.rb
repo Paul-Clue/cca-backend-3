@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_20_212610) do
+ActiveRecord::Schema.define(version: 2022_01_25_014033) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -63,7 +63,6 @@ ActiveRecord::Schema.define(version: 2022_01_20_212610) do
     t.string "work_hours"
     t.string "residence"
     t.string "email_code"
-    t.json "avatar"
   end
 
 end

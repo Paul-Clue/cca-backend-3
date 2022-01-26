@@ -2,7 +2,7 @@
 class ApplicationController < ActionController::Base
   # before_action :authorized
   skip_before_action :authorized, :raise => false
-  protect_from_forgery with: :null_session
+  # protect_from_forgery with: :null_session
 
   def jwt_key
     Rails.application.credentials.jwt_key
@@ -30,6 +30,7 @@ class ApplicationController < ActionController::Base
 
   def user_id
       decoded_token.first['user_id']
+      puts "This is the user id: #{decoded_token.first}"
   end
 
   def current_user

@@ -1,14 +1,17 @@
 class Api::V1::AuthController < ApplicationController
-  skip_before_action :authorized, only: [:create], :raise => false
+  # skip_before_action :authorized, only: [:create], :raise => false
   skip_before_action :verify_authenticity_token
-  # skip_before_action :authorized, :raise => false
+  skip_before_action :authorized, :raise => false
   # before_action :authorized
 
   def create
       user = User.find_by(email: user_login_params[:email])
       puts user
       if user && user.authenticate(user_login_params[:password])
+        
           token = issue_token(user)
+          puts UserSerializer.new(user)
+          puts "SOmething"
         render json: {user: UserSerializer.new(user), jwt: token}
       else
         render json: { error: 'That user could not be found' }, status: 401
