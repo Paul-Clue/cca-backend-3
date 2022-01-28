@@ -23,6 +23,7 @@ Rails.application.routes.draw do
       get '/stattotaltime', to: 'users#total_time_until_employ'
       get '/statalluserslocations', to: 'users#user_locations'
       get '/statallusersemployment', to: 'users#all_user_employment_status'
+      get '/profilepic/:id', to: 'users#profile_pic'
 
       get '/current_user', to: 'auth#show'
       get '/users', to: 'users#index'

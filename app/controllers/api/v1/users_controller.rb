@@ -22,6 +22,13 @@ class Api::V1::UsersController < ApiController
     # render json:  @user.to_json
   end
 
+  def profile_pic
+    @user = User.find(params[:id])
+    @user_pic = @user.img
+
+    render json: {user: @user_pic}
+  end
+
   def update
     @us = User.all
 

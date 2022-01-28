@@ -9,7 +9,7 @@ Rails.application.configure do
   config.cache_classes = false
 
   # config.hosts << "0a34-64-64-117-139.ngrok.io"
-  # config.hosts << "ccafrontend.herokuapp.com"
+  config.hosts << "5bdf-72-252-198-169.ngrok.io"
 
   # Do not eager load code on boot.
   config.eager_load = false
@@ -39,8 +39,8 @@ Rails.application.configure do
   config.action_mailer.perform_caching = false
 
   config.action_mailer.delivery_method = :smtp
-host = 'ccafrontend.herokuapp.com' #replace with your own url
-config.action_mailer.default_url_options = { host: host, port: '80' }
+host = 'localhost' #replace with your own url
+config.action_mailer.default_url_options = { host: host, port: '3001' }
 
 # SMTP settings for gmail
 config.action_mailer.smtp_settings = {

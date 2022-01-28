@@ -1,4 +1,5 @@
 class Api::V1::AuthController < ApplicationController
+# class Api::V1::AuthController < ApiController
   # skip_before_action :authorized, only: [:create], :raise => false
   skip_before_action :verify_authenticity_token
   skip_before_action :authorized, :raise => false
