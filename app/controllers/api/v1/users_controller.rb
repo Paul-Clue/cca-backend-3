@@ -95,6 +95,7 @@ class Api::V1::UsersController < ApiController
       # CALLED 'user_email_validate_token'---@user.user_email_validate_token = token----
 
       if @user_new.save
+        @user_new.user_type = 'user'
         puts "Something ran"
           @token = issue_token(@user_new)
           # render json: { user: @user_new, jwt: @token }
