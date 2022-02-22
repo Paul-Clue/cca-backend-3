@@ -9,7 +9,7 @@ Rails.application.configure do
   config.cache_classes = false
 
   # config.hosts << "0a34-64-64-117-139.ngrok.io"
-  config.hosts << "e955-72-252-198-169.ngrok.io"
+  config.hosts << "c06d-72-252-198-169.ngrok.io"
 
   # Do not eager load code on boot.
   config.eager_load = false
