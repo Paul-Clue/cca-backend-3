@@ -12,7 +12,9 @@ class Api::V1::MilestonesController < ApiController
 
   def current_user_milestones
     # @current_users_milestones = Milestone.select("title, instructions").where(user_id: current_user.id)
-    @current_users_milestones = Milestone.select("title, instructions").where(user_id: current_user.id).or(Milestone.select("title, instructions").where(user_id: "*"))
+    # @current_users_milestones = Milestone.select("title, instructions").where(user_id: params[user_id]).or(Milestone.select("title, instructions").where(user_id: "*"))
+    @current_users_milestones = Milestone.select("title, instructions, id").where(user_id: [params[:user_id],"*"])
+    puts "This is the user Id#{params[:user_id]}"
     render json: @current_users_milestones.to_json
     # render json: current_user.to_json
   end
@@ -74,6 +76,6 @@ class Api::V1::MilestonesController < ApiController
   end
 
   def set_milestone
-    @mile = Milestone.find_by(id: mile_params[:id])
+    @mile = Milestone.find_by(id: mile_params[:user_id])
   end
 end
